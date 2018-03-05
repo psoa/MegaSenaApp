@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Theme color obtained from https://material.io/color/
+-->
+<resources>
+    <color name="colorPrimary">#69efad</color>
+    <color name="colorPrimaryLight">#9fffdf</color>
+    <color name="colorPrimaryDark">#2bbc7d</color>
+    <color name="colorAccent">#000000</color>
+</resources>

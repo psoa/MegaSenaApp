@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.psoa.megasena.megasenaapp.MainActivity">
+
+    <Button
+        android:id="@+id/btOne"
+        style="@style/rounded_number"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btTwo"
+        style="@style/rounded_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        app:layout_constraintStart_toEndOf="@+id/btOne"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btThree"
+        style="@style/rounded_number"
+        android:layout_marginTop="16dp"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@+id/btTwo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFour"
+        style="@style/rounded_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="4"
+        app:layout_constraintStart_toEndOf="@+id/btThree"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btFive"
+        style="@style/rounded_number"
+        android:layout_marginTop="16dp"
+        android:text="5"
+        app:layout_constraintStart_toEndOf="@+id/btFour"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btSix"
+        style="@style/rounded_number"
+        android:layout_marginTop="16dp"
+        android:text="6"
+        app:layout_constraintStart_toEndOf="@+id/btFive"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btSeven"
+        style="@style/rounded_number"
+        android:layout_marginTop="16dp"
+        android:text="7"
+        app:layout_constraintStart_toEndOf="@+id/btSix"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btEight"
+        style="@style/rounded_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="8"
+        app:layout_constraintStart_toEndOf="@+id/btSeven"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btNine"
+        style="@style/rounded_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="9"
+        app:layout_constraintStart_toEndOf="@+id/btEight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btTen"
+        style="@style/rounded_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="10"
+        app:layout_constraintStart_toEndOf="@+id/btNine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
