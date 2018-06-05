@@ -14,4 +14,14 @@
     <string name="error_field_required">Campo obrigatório</string>
     <string name="permission_rationale">"A permissão aos contatos é necessária para a função de
         auto completar."
-    </string></resources>
+    </string>
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <string name="nav_header_subtitle">Boa Sorte</string>
+    <string name="action_settings">Configurações</string>
+    <string name="title_activity_menu">Resumo</string>
+    <string name="nav_header_title">Mega Sena</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_about">Sobre</string>
+    <string name="nav_exit">Sair</string>
+</resources>

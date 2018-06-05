@@ -3,7 +3,6 @@ package br.com.psoa.megasena.megasenaapp.view
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.TargetApi
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.AsyncTask
 import android.os.Build
@@ -186,7 +185,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun openMainActivity() {
         val intent = Intent(this@LoginActivity,
-                MainActivity::class.java)
+                MenuActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
         startActivity(intent)
         finish()
