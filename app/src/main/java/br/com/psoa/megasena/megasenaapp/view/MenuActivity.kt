@@ -36,7 +36,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.content_menu_layout, HomeFragment() , "content_menu_layout")
+                    .add(R.id.content_menu_layout, HomeFragment(), "content_menu_layout")
                     .commit()
         }
     }
@@ -66,8 +66,14 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
 
+        when (item.itemId) {
+            R.id.nav_exit -> {
+                onExit()
+                return true
+            }
+        }
+        // Handle navigation view item clicks here.
         val fragment = when (item.itemId) {
             R.id.nav_camera -> {
                 HomeFragment()
@@ -106,5 +112,20 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    private fun onExit() {
+        val sp = getSharedPreferences("login", MODE_PRIVATE)
+        sp.edit().remove("email").apply()
+        sp.edit().remove("userId").apply()
+        openLoginActivity()
+    }
+
+
+    private fun openLoginActivity() {
+        val intent = Intent(this@MenuActivity,
+                LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+        startActivity(intent)
+        finish()
+    }
 
 }
