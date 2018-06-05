@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:theme="@style/FullScreen"
-    tools:context="br.com.psoa.megasena.megasenaapp.SplashScreen">
+    tools:context="br.com.psoa.megasena.megasenaapp.view.SplashScreen">
 
     <ImageView
         android:id="@+id/splash"
