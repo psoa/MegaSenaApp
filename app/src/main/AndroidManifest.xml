@@ -33,7 +33,12 @@
             android:name=".view.MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.AboutActivity"></activity>
+        <activity android:name=".view.AboutActivity" />
+        <activity
+            android:name=".view.PlayLotteryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_play_lottery"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>

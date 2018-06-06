@@ -24,4 +24,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="nav_about">Sobre</string>
     <string name="nav_exit">Sair</string>
+    <string name="play_button">apostar</string>
+    <string name="cancel_button">Cancel</string>
 </resources>

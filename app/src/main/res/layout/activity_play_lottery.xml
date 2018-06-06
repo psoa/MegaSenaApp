@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_splash"
+    tools:context=".view.PlayLotteryActivity">
+
+    <TableLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:stretchColumns="*">
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt1"
+                style="@style/rounded_number"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/bt2"
+                style="@style/rounded_number"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/bt3"
+                style="@style/rounded_number"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/bt4"
+                style="@style/rounded_number"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/bt5"
+                style="@style/rounded_number"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/bt6"
+                style="@style/rounded_number"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/bt7"
+                style="@style/rounded_number"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/bt8"
+                style="@style/rounded_number"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/bt9"
+                style="@style/rounded_number"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/bt10"
+                style="@style/rounded_number"
+                android:text="10" />
+
+        </TableRow>
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt11"
+                style="@style/rounded_number"
+                android:text="11" />
+
+            <Button
+                android:id="@+id/bt12"
+                style="@style/rounded_number"
+                android:text="12" />
+
+            <Button
+                android:id="@+id/bt13"
+                style="@style/rounded_number"
+                android:text="13" />
+
+            <Button
+                android:id="@+id/bt14"
+                style="@style/rounded_number"
+                android:text="14" />
+
+            <Button
+                android:id="@+id/bt15"
+                style="@style/rounded_number"
+                android:text="15" />
+
+            <Button
+                android:id="@+id/bt16"
+                style="@style/rounded_number"
+                android:text="16" />
+
+            <Button
+                android:id="@+id/bt17"
+                style="@style/rounded_number"
+                android:text="17" />
+
+            <Button
+                android:id="@+id/bt18"
+                style="@style/rounded_number"
+                android:text="18" />
+
+            <Button
+                android:id="@+id/bt19"
+                style="@style/rounded_number"
+                android:text="19" />
+
+            <Button
+                android:id="@+id/bt20"
+                style="@style/rounded_number"
+                android:text="20" />
+
+        </TableRow>
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt21"
+                style="@style/rounded_number"
+                android:text="21"/>
+            <Button
+                android:id="@+id/bt22"
+                style="@style/rounded_number"
+                android:text="22" />
+            <Button
+                android:id="@+id/bt23"
+                style="@style/rounded_number"
+                android:text="23" />
+
+            <Button
+                android:id="@+id/bt24"
+                style="@style/rounded_number"
+                android:text="24" />
+
+            <Button
+                android:id="@+id/bt25"
+                style="@style/rounded_number"
+                android:text="25" />
+
+            <Button
+                android:id="@+id/bt26"
+                style="@style/rounded_number"
+                android:text="26" />
+
+            <Button
+                android:id="@+id/bt27"
+                style="@style/rounded_number"
+                android:text="27" />
+
+            <Button
+                android:id="@+id/bt28"
+                style="@style/rounded_number"
+                android:text="28" />
+
+            <Button
+                android:id="@+id/bt29"
+                style="@style/rounded_number"
+                android:text="29" />
+
+            <Button
+                android:id="@+id/bt30"
+                style="@style/rounded_number"
+                android:text="30" />
+
+        </TableRow>
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt31"
+                style="@style/rounded_number"
+                android:text="31" />
+
+            <Button
+                android:id="@+id/bt32"
+                style="@style/rounded_number"
+                android:text="32" />
+
+            <Button
+                android:id="@+id/bt33"
+                style="@style/rounded_number"
+                android:text="33" />
+
+            <Button
+                android:id="@+id/bt34"
+                style="@style/rounded_number"
+                android:text="34" />
+
+            <Button
+                android:id="@+id/bt35"
+                style="@style/rounded_number"
+                android:text="35" />
+
+            <Button
+                android:id="@+id/bt36"
+                style="@style/rounded_number"
+                android:text="36" />
+
+            <Button
+                android:id="@+id/bt37"
+                style="@style/rounded_number"
+                android:text="37" />
+
+            <Button
+                android:id="@+id/bt38"
+                style="@style/rounded_number"
+                android:text="38" />
+
+            <Button
+                android:id="@+id/bt39"
+                style="@style/rounded_number"
+                android:text="39" />
+
+            <Button
+                android:id="@+id/bt40"
+                style="@style/rounded_number"
+                android:text="40" />
+
+        </TableRow>
+
+
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt41"
+                style="@style/rounded_number"
+                android:text="41" />
+
+            <Button
+                android:id="@+id/bt42"
+                style="@style/rounded_number"
+                android:text="42" />
+
+            <Button
+                android:id="@+id/bt43"
+                style="@style/rounded_number"
+                android:text="43" />
+
+            <Button
+                android:id="@+id/bt44"
+                style="@style/rounded_number"
+                android:text="44" />
+
+            <Button
+                android:id="@+id/bt45"
+                style="@style/rounded_number"
+                android:text="45" />
+
+            <Button
+                android:id="@+id/bt46"
+                style="@style/rounded_number"
+                android:text="46" />
+
+            <Button
+                android:id="@+id/bt47"
+                style="@style/rounded_number"
+                android:text="47" />
+
+            <Button
+                android:id="@+id/bt48"
+                style="@style/rounded_number"
+                android:text="48" />
+
+            <Button
+                android:id="@+id/bt49"
+                style="@style/rounded_number"
+                android:text="49" />
+
+            <Button
+                android:id="@+id/bt50"
+                style="@style/rounded_number"
+                android:text="50" />
+
+        </TableRow>
+
+
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/bt51"
+                style="@style/rounded_number"
+                android:text="51" />
+
+            <Button
+                android:id="@+id/bt52"
+                style="@style/rounded_number"
+                android:text="52" />
+
+            <Button
+                android:id="@+id/bt53"
+                style="@style/rounded_number"
+                android:text="53" />
+
+            <Button
+                android:id="@+id/bt54"
+                style="@style/rounded_number"
+                android:text="54" />
+
+            <Button
+                android:id="@+id/bt55"
+                style="@style/rounded_number"
+                android:text="55" />
+
+            <Button
+                android:id="@+id/bt56"
+                style="@style/rounded_number"
+                android:text="56" />
+
+            <Button
+                android:id="@+id/bt57"
+                style="@style/rounded_number"
+                android:text="57" />
+
+            <Button
+                android:id="@+id/bt58"
+                style="@style/rounded_number"
+                android:text="58" />
+
+            <Button
+                android:id="@+id/bt59"
+                style="@style/rounded_number"
+                android:text="59" />
+
+            <Button
+                android:id="@+id/bt60"
+                style="@style/rounded_number"
+                android:text="60" />
+
+        </TableRow>
+    </TableLayout>
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+
+            <Button
+                android:id="@+id/play_button"
+                style="@style/MegaButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/play_button" />
+
+            <Button
+                android:id="@+id/cancel_button"
+                style="@style/MegaButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cancel_button" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

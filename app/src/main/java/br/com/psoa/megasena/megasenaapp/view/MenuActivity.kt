@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import br.com.psoa.megasena.megasenaapp.R
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -21,10 +22,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_menu)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Add a new bet", Snackbar.LENGTH_LONG)
-                    .setAction("bet", null).show()
-        }
+        fab.setOnClickListener { onPlayLottery() }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -39,6 +37,13 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .add(R.id.content_menu_layout, HomeFragment(), "content_menu_layout")
                     .commit()
         }
+    }
+
+    private fun onPlayLottery() {
+        val intent = Intent(this@MenuActivity,
+                PlayLotteryActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+        startActivity(intent)
     }
 
     override fun onBackPressed() {
@@ -95,9 +100,6 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_about -> {
                 AboutFragment()
-            }
-            R.id.nav_exit -> {
-                HomeFragment()
             }
             else -> {
                 HomeFragment()
