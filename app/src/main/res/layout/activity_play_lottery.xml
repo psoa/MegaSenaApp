@@ -6,6 +6,7 @@
     android:background="@color/background_splash"
     tools:context=".view.PlayLotteryActivity">
 
+
     <TableLayout
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
@@ -17,6 +18,17 @@
         android:layout_marginTop="15dp"
         android:stretchColumns="*">
 
+        <TableRow style="@style/tr_play_lottery">
+            <TextView
+                android:id="@+id/txMyPlayNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40dp"
+                android:textAlignment="center"
+                tools:hint="@string/my_play_number"
+                android:layout_span="10"/>
+        </TableRow>
         <TableRow style="@style/tr_play_lottery">
 
             <Button
@@ -401,6 +413,18 @@
                 android:text="60" />
 
         </TableRow>
+        <TableRow style="@style/tr_play_lottery">
+
+            <Button
+                android:id="@+id/clean_button"
+                style="@style/MegaButton"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clean_play_button"
+                android:layout_span="10"/>
+
+        </TableRow>
     </TableLayout>
 
 
@@ -441,5 +465,6 @@
         </LinearLayout>
 
     </FrameLayout>
+
 
 </FrameLayout>

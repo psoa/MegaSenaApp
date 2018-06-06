@@ -6,12 +6,15 @@ import android.content.Context
 import br.com.psoa.megasena.megasenaapp.data.User
 import br.com.psoa.megasena.megasenaapp.data.UserDao
 import android.arch.persistence.room.Room
+import br.com.psoa.megasena.megasenaapp.data.Bet
+import br.com.psoa.megasena.megasenaapp.data.BetDao
 
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, Bet::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
+    abstract fun betDao(): BetDao
 
     companion object {
 
@@ -25,7 +28,8 @@ abstract class AppDatabase : RoomDatabase() {
                                 context.applicationContext,
                                 AppDatabase::class.java,
                                 "megasena_database")
-                                .build();
+                                .fallbackToDestructiveMigration()
+                                .build()
                     }
                 }
             }

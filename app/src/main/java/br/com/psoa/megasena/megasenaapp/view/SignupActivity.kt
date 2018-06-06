@@ -14,7 +14,7 @@ import android.view.View
 import br.com.psoa.megasena.megasenaapp.R
 import br.com.psoa.megasena.megasenaapp.data.User
 import br.com.psoa.megasena.megasenaapp.repository.AppRepository
-import br.com.psoa.megasena.megasenaapp.repository.UserInsertListener
+import br.com.psoa.megasena.megasenaapp.repository.InsertListener
 
 import kotlinx.android.synthetic.main.activity_signup.*
 
@@ -144,13 +144,13 @@ class SignupActivity : AppCompatActivity() {
     inner class UserSignupTask internal constructor(private val mName: String,
                                                     private val mEmail: String,
                                                     private val mPassword: String) :
-            AsyncTask<Void, Void, Void>(), UserInsertListener {
+            AsyncTask<Void, Void, Void>(), InsertListener {
 
         private val repo = AppRepository(this@SignupActivity.application)
         private val user = User(mName, mEmail, mPassword)
 
-        override fun onUserInsert(statusCode: UserInsertListener.InsertStatusCode) {
-            if (statusCode == UserInsertListener.InsertStatusCode.OK) {
+        override fun onUserInsert(statusCode: InsertListener.InsertStatusCode) {
+            if (statusCode == InsertListener.InsertStatusCode.OK) {
                 openLoginActivity()
             } else {
                 //FIXME: Show a error message and keep in the register page

@@ -1,9 +1,7 @@
 package br.com.psoa.megasena.megasenaapp.view
 
-import android.app.Fragment
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
@@ -11,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import br.com.psoa.megasena.megasenaapp.R
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
@@ -25,7 +22,9 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fab.setOnClickListener { onPlayLottery() }
 
         val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+                this, drawer_layout, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -80,14 +79,11 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         // Handle navigation view item clicks here.
         val fragment = when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_info -> {
                 HomeFragment()
             }
-            R.id.nav_gallery -> {
-                HomeFragment()
-            }
-            R.id.nav_slideshow -> {
-                HomeFragment()
+            R.id.nav_my_bets -> {
+                BetListFragment()
             }
             R.id.nav_manage -> {
                 HomeFragment()
@@ -129,5 +125,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
         finish()
     }
+
+
 
 }
