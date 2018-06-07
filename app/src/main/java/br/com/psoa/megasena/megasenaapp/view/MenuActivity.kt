@@ -38,11 +38,21 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.content_menu_layout, BetListFragment(), "content_menu_layout")
+                .commit()
+
+    }
+
     private fun onPlayLottery() {
         val intent = Intent(this@MenuActivity,
                 PlayLotteryActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-        startActivity(intent)
+        intent.putExtra("isEdit", false)
+        startActivityForResult(intent, 1)
     }
 
     override fun onBackPressed() {

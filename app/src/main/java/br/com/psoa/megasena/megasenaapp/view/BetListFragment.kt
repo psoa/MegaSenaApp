@@ -1,6 +1,7 @@
 package br.com.psoa.megasena.megasenaapp.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,18 +9,15 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import br.com.psoa.megasena.megasenaapp.R
 import br.com.psoa.megasena.megasenaapp.adapter.BetListRecyclerViewAdapter
 import br.com.psoa.megasena.megasenaapp.data.Bet
-import br.com.psoa.megasena.megasenaapp.data.User
 import br.com.psoa.megasena.megasenaapp.repository.AppRepository
 import br.com.psoa.megasena.megasenaapp.repository.UserBetLoadListener
-import br.com.psoa.megasena.megasenaapp.repository.UserLoadListener
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.bet_item_list.*
 
 
@@ -41,8 +39,6 @@ class BetListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.bet_item_list, container, false)
-
-        // Set the adapter
         return view
     }
 
@@ -84,11 +80,25 @@ class BetListFragment : Fragment() {
             OnBetListFragmentInteractionListener {
 
         override fun onListFragmentInteraction(item: Bet?) {
-            Log.i("TIAGO", "A item was selected " + item?.numbers)
+            val intent = Intent(this@BetListFragment.activity!!,
+                    PlayLotteryActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+            intent.putExtra("betId", item?.id)
+            intent.putExtra("numbers", item?.numbers)
+            intent.putExtra("lottery", item?.lottery)
+            intent.putExtra("isEdit", true)
+            intent.putExtra("dateOfBet", item?.dateOfBet)
+            startActivityForResult(intent, 1)
         }
 
     }
 
+    private fun toast(msg: String) {
+        val context = this@BetListFragment.activity!!
+        val duration = Toast.LENGTH_LONG
+        val toast = Toast.makeText(context, msg, duration)
+        context.runOnUiThread { toast.show() }
+    }
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -100,7 +110,7 @@ class BetListFragment : Fragment() {
             if (bets != null) {
                 setUpRecyclerView(bets)
             } else {
-                Log.i("TIAGO", "No itens found")
+                toast("No items found")
             }
         }
 

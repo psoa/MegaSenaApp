@@ -24,7 +24,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="nav_about">Sobre</string>
     <string name="nav_exit">Sair</string>
-    <string name="play_button">apostar</string>
-    <string name="cancel_button">Cancel</string>
-    <string name="clean_play_button">Clean</string>
+    <string name="play_button">Apostar</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="clean_play_button">Limpar</string>
+    <string name="delete_button">Excluir</string>
+    <string name="edit_button">Edit</string>
+
 </resources>

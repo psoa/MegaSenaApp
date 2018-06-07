@@ -27,8 +27,8 @@ class AppRepository {
         LoadUserAsyncTask(userDao, userLoadListener).execute(email)
     }
 
-    fun save(user: User, InsertListener: InsertListener) {
-        SaveUserAsyncTask(userDao, InsertListener).execute(user)
+    fun save(user: User, listener: SaveListener) {
+        SaveUserAsyncTask(userDao, listener).execute(user)
     }
 
 
@@ -36,43 +36,67 @@ class AppRepository {
         LoadUserBetAsyncTask(betDao, userBetLoadListener).execute(userId)
     }
 
-    fun save(bet: Bet, InsertListener: InsertListener) {
-        SaveBetAsyncTask(betDao, InsertListener).execute(bet)
+    fun save(bet: Bet, statusCode: SaveListener) {
+        SaveBetAsyncTask(betDao, statusCode).execute(bet)
     }
+
+    fun delete(bet: Bet, listener: DeleteListener) {
+        DeleteBetAsyncTask(betDao, listener).execute(bet)
+    }
+
 
     companion object {
         private class SaveUserAsyncTask internal constructor(private val asyncTaskDao: UserDao?,
-                                                             private val insertListener: InsertListener) :
+                                                             private val insertListener: SaveListener) :
                 AsyncTask<User, Void, Void>() {
 
             override fun doInBackground(vararg params: User): Void? {
                 try {
                     asyncTaskDao?.insert(params[0])
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.OK)
+                    insertListener.onSave(SaveListener.SaveStatusCode.OK)
                 } catch (e: SQLDataException) {
                     Log.e("PSOA", e.localizedMessage, e)
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.FAIL)
+                    insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 } catch (e: Exception) {
                     Log.e("PSOA", e.localizedMessage, e)
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.FAIL)
+                    insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 }
                 return null
             }
         }
         private class SaveBetAsyncTask internal constructor(private val asyncTaskDao: BetDao?,
-                                                             private val insertListener: InsertListener) :
+                                                             private val insertListener: SaveListener) :
                 AsyncTask<Bet, Void, Void>() {
 
             override fun doInBackground(vararg params: Bet): Void? {
                 try {
                     asyncTaskDao?.insert(params[0])
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.OK)
+                    insertListener.onSave(SaveListener.SaveStatusCode.OK)
                 } catch (e: SQLDataException) {
                     Log.e("PSOA", e.localizedMessage, e)
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.FAIL)
+                    insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 } catch (e: Exception) {
                     Log.e("PSOA", e.localizedMessage, e)
-                    insertListener.onUserInsert(InsertListener.InsertStatusCode.FAIL)
+                    insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
+                }
+                return null
+            }
+        }
+
+        private class DeleteBetAsyncTask internal constructor(private val asyncTaskDao: BetDao?,
+                                                            private val listener: DeleteListener) :
+                AsyncTask<Bet, Void, Void>() {
+
+            override fun doInBackground(vararg params: Bet): Void? {
+                try {
+                    asyncTaskDao?.delete(params[0])
+                    listener.onDelete(DeleteListener.DeleteStatusCode.OK)
+                } catch (e: SQLDataException) {
+                    Log.e("PSOA", e.localizedMessage, e)
+                    listener.onDelete(DeleteListener.DeleteStatusCode.FAIL)
+                } catch (e: Exception) {
+                    Log.e("PSOA", e.localizedMessage, e)
+                    listener.onDelete(DeleteListener.DeleteStatusCode.FAIL)
                 }
                 return null
             }
@@ -128,10 +152,19 @@ interface UserLoadListener {
     fun onUserLoad(user: User?)
 }
 
-interface InsertListener {
-    fun onUserInsert(statusCode: InsertStatusCode)
+interface SaveListener {
+    fun onSave(statusCode: SaveStatusCode)
 
-    enum class InsertStatusCode {
+    enum class SaveStatusCode {
+        OK,
+        FAIL
+    }
+}
+
+interface DeleteListener {
+    fun onDelete(statusCode: DeleteStatusCode)
+
+    enum class DeleteStatusCode {
         OK,
         FAIL
     }
