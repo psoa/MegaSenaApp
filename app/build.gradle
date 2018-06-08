@@ -37,6 +37,8 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
     kapt "android.arch.persistence.room:compiler:$roomVersion"
     androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
 
@@ -51,7 +53,6 @@ dependencies {
 
     //access database from browser (chrome://inspect/#devices)
     implementation "com.facebook.stetho:stetho:$stethoVersion"
-
 
     //Anko Commons: a lightweight library full of helpers for intents, dialogs, logging and so on;
     implementation "org.jetbrains.anko:anko-support-v4-commons:$anko_version"

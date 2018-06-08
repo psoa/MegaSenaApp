@@ -12,7 +12,7 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.app_bar_menu.*
 
-class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +86,10 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 onExit()
                 return true
             }
+            R.id.nav_map -> {
+                showMap()
+                return true
+            }
         }
         // Handle navigation view item clicks here.
         val fragment = when (item.itemId) {
@@ -95,10 +99,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_my_bets -> {
                 BetListFragment()
             }
-            R.id.nav_manage -> {
-                HomeFragment()
-            }
-            R.id.nav_share -> {
+           R.id.nav_share -> {
                 HomeFragment()
             }
             R.id.nav_send -> {
@@ -120,6 +121,15 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    private fun showMap() {
+
+            val intent = Intent(this@MenuActivity,
+                    LotteryLocationMapsActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+            startActivity(intent)
+            finish()
+        }
+
     private fun onExit() {
         val sp = getSharedPreferences("login", MODE_PRIVATE)
         sp.edit().remove("email").apply()
@@ -135,7 +145,4 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(intent)
         finish()
     }
-
-
-
 }

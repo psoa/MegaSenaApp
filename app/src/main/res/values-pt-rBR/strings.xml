@@ -29,5 +29,8 @@
     <string name="clean_play_button">Limpar</string>
     <string name="delete_button">Excluir</string>
     <string name="edit_button">Edit</string>
+    <string name="title_activity_lottery_location">Localization</string>
+    <string name="close_button">Close</string>
+    <string name="nav_map">Lottery Location</string>
 
 </resources>

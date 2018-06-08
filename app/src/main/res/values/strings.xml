@@ -36,4 +36,10 @@
     <string name="nav_tools">Tools</string>
     <string name="delete_button">Delete</string>
     <string name="edit_button">Edit</string>
+    <string name="title_activity_lottery_location_maps">Map</string>
+    <string name="google_maps_key">AIzaSyCaNSgoYxqTWjDP3hMJZcuNnK3R-00pdDU</string>
+    <string name="title_activity_lotery_location">Localization of Lottery</string>
+    <string name="title_activity_lottery_location">Localization</string>
+    <string name="close_button">Close</string>
+    <string name="nav_map">Lottery Location</string>
 </resources>
