@@ -64,12 +64,14 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <Button
+            <!-- Signin Button -->
+            <android.support.v7.widget.AppCompatButton
                 android:id="@+id/email_sign_in_button"
-                style="@style/MegaButton"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="24dp"
+                android:padding="12dp"
                 android:text="@string/action_sign_in" />
 
 
@@ -79,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
-                android:text="Not yet registered? Sign Up"
-                android:textSize="16dip" />
+                android:text="@string/not_yet_singup"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

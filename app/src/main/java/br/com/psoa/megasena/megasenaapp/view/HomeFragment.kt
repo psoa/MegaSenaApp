@@ -14,6 +14,12 @@ import br.com.psoa.megasena.megasenaapp.R
 import br.com.psoa.megasena.megasenaapp.ViewModel.LotoDicasViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
+
+/**
+ * Show information about the last lottery number (at least for now)
+ *
+ *
+ */
 class HomeFragment : Fragment() {
 
     lateinit var lotoDicasViewModel: LotoDicasViewModel
@@ -23,6 +29,8 @@ class HomeFragment : Fragment() {
 
         lotoDicasViewModel = ViewModelProviders.of(this).get(LotoDicasViewModel::class.java)
 
+
+        //TODO: Now it is fixed for the MVP. But we will retrieve the precessor lottery number
         lotoDicasViewModel.search("2038")
 
         lotoDicasViewModel.apiResponse.observe(this,

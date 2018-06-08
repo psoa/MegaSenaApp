@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.app_bar_menu.*
 
 class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
+    private val _fragmentTag = "content_menu_layout"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
@@ -34,7 +36,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.content_menu_layout, HomeFragment(), "content_menu_layout")
+                    .add(R.id.content_menu_layout, HomeFragment(), _fragmentTag)
                     .commit()
         }
     }
@@ -43,7 +45,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onActivityResult(requestCode, resultCode, data)
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.content_menu_layout, BetListFragment(), "content_menu_layout")
+                .replace(R.id.content_menu_layout, BetListFragment(), _fragmentTag)
                 .commit()
 
     }
@@ -69,7 +71,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
-
+//    FIXME: Add a settings editing functionality (like change password)
 //    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 //        // Handle action bar item clicks here. The action bar will
 //        // automatically handle clicks on the Home/Up button, so long
@@ -82,6 +84,8 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
+        // Handle navigation view item clicks here.
+        // Open new activities
         when (item.itemId) {
             R.id.nav_exit -> {
                 onExit()
@@ -96,22 +100,27 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
             R.id.nav_send -> {
-                makePhoneCall("") //TODO: Just for FIAP - REMOVE
+                makePhoneCall("")
                 return true
             }
         }
-        // Handle navigation view item clicks here.
+
+        //Open new fragments
         val fragment = when (item.itemId) {
             R.id.nav_info -> {
+                title = getString(R.string.title_activity_menu)
                 HomeFragment()
             }
             R.id.nav_my_bets -> {
+                title = "Minhas Apostas"
                 BetListFragment()
             }
             R.id.nav_about -> {
+                title = "Sobre"
                 AboutFragment()
             }
             else -> {
+                title = getString(R.string.title_activity_menu)
                 HomeFragment()
             }
         }
@@ -122,6 +131,7 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.content_menu_layout, fragment)
                 .commit()
         drawer_layout.closeDrawer(GravityCompat.START)
+
         return true
     }
 
@@ -129,8 +139,8 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun shareNumbers() {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/")
-        startActivity(Intent.createChooser(shareIntent, "Mostre que ganhou!"))
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.caixa_lottery_result_uri))
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_you_win)))
     }
 
     private fun makePhoneCall(number: String) : Boolean {

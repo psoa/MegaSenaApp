@@ -11,26 +11,27 @@ import br.com.psoa.megasena.megasenaapp.repository.LotoDicasRepositoryImpl
 
 class LotoDicasViewModel : ViewModel() {
 
-    private val lotoDicasRepository: LotoDicasRepository
-    private val mApiResponse: MediatorLiveData<LotoDicasResponse>
-    val apiResponse: LiveData<LotoDicasResponse> get() = mApiResponse
+    private val _lotoDicasRepository: LotoDicasRepository
+    private val _apiResponse: MediatorLiveData<LotoDicasResponse>
+
+    val apiResponse: LiveData<LotoDicasResponse> get() = _apiResponse
     val isLoading: MutableLiveData<Boolean>
 
     init {
-        lotoDicasRepository = LotoDicasRepositoryImpl()
-        mApiResponse = MediatorLiveData()
+        _lotoDicasRepository = LotoDicasRepositoryImpl()
+        _apiResponse = MediatorLiveData()
         isLoading = MutableLiveData()
 
     }
 
     fun search(numberLottery: String): LiveData<LotoDicasResponse> {
         isLoading.postValue(true)
-        mApiResponse.addSource(lotoDicasRepository.getLotoDicas(numberLottery)) { a ->
-            mApiResponse.value = a
+        _apiResponse.addSource(_lotoDicasRepository.getLotoDicas(numberLottery)) { a ->
+            _apiResponse.value = a
             isLoading.postValue(false)
         }
 
-        return mApiResponse
+        return _apiResponse
     }
 
 }

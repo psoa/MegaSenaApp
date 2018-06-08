@@ -15,6 +15,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+/**
+ *
+ * Allows to user to CRUD operations with the lottery numbers (their bets)
+ *
+ */
 class PlayLotteryActivity : AppCompatActivity() {
 
 
@@ -51,7 +56,7 @@ class PlayLotteryActivity : AppCompatActivity() {
 
     private fun onPlayClicked() {
         if (myPlayNumber.size < 6) {
-            toast("You should select at least 6 numbers")
+            toast(getString(R.string.mininum_lottery_numbers))
             return
         }
         val sp = getSharedPreferences("login", MODE_PRIVATE)
@@ -133,7 +138,7 @@ class PlayLotteryActivity : AppCompatActivity() {
         fun save() {
             val sp = getSharedPreferences("lottery", MODE_PRIVATE)
             val currentLottery = sp.getString("currentLottery", "2039")
-            val date = SimpleDateFormat("YYYY-mm-dd").format(Date())
+            val date = SimpleDateFormat("yyyy-mm-dd").format(Date())
 
             val isEdit = intent.getBooleanExtra("isEdit", false)
             var bet =

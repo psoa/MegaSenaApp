@@ -28,7 +28,7 @@
     <string name="cancel_button">Cancelar</string>
     <string name="clean_play_button">Limpar</string>
     <string name="delete_button">Excluir</string>
-    <string name="edit_button">Edit</string>
+    <string name="edit_button">Editar</string>
     <string name="title_activity_lottery_location">Localization</string>
     <string name="close_button">Close</string>
     <string name="nav_map">Lottery Location</string>
@@ -41,5 +41,23 @@
     <string name="title_activity_lottery_location_maps">Mapa</string>
     <string name="title_activity_lotery_location">Local do Sorteio</string>
     <string name="call_result">Ganhou! Avise alguém</string>
+    <string name="no_items_found">No items found</string>
+    <string name="access_location_permission_title">Permission request</string>
+    <string name="share_you_win">Mostre que ganhou!</string>
+    <string name="mininum_lottery_numbers">You should select at least 6 numbers</string>
+    <string name="not_yet_singup">Not yet registered? Sign Up</string>
+    <string name="already_member_signin">Already a member? Login</string>
+    <string name="you_are_here">Você está aqui</string>
+    <string name="access_location_permission">Mega Sena precisa de acesso a sua localização</string>
+    <string name="loading_data">Carregando os dados...</string>
+    <string name="google_maps_key">AIzaSyCaNSgoYxqTWjDP3hMJZcuNnK3R-00pdDU</string>
+    <string name="author">Tiago Novaes Dias</string>
+    <string name="caixa_lottery_result_uri">http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/</string>
+    <string name="version">v1.0</string>
+    <string name="last_lottery_number">Último Sorteio</string>
+    <string name="date_last_lottery">Data</string>
+    <string name="lottery_selected_numbers">Numeros Sorteados</string>
+    <string name="numbers">Números</string>
+    <string name="lottery">concurso</string>
 
 </resources>

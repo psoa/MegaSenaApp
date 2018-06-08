@@ -25,20 +25,24 @@ import kotlinx.android.synthetic.main.activity_lottery_location_maps.*
 import java.text.DateFormat
 import java.util.*
 
-
+/**
+ * Show the location of the last lottery, in this MVP show where lottery 2038 took place
+ *
+ */
+//FIXME: Replace for a fragment. A lot of exceptions and a strong deadline made this activity
 class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         LocationListener,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
-    private val INTERVAL = (1000 * 10).toLong()
-    private val FASTEST_INTERVAL = (1000 * 5).toLong()
-    var mCurrentLocation: Location? = null
-    var mLastUpdateTime: String? = null
-    lateinit var mLocationRequest: LocationRequest
-    private lateinit var mMap: GoogleMap
-    private lateinit var mGoogleApiClient: GoogleApiClient
-    val REQUEST_GPS = 0
+    private val _interval = (1000 * 10).toLong()
+    private val _fastedInterval = (1000 * 5).toLong()
+    private var _currentLocation: Location? = null
+    private var _lastUpdateTime: String? = null
+    private lateinit var _locationRequest: LocationRequest
+    private lateinit var _maps: GoogleMap
+    private lateinit var _googleApiClient: GoogleApiClient
+    private val _requestGPS = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +64,23 @@ class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     override fun onLocationChanged(location: Location?) {
-        mCurrentLocation = location
-        mLastUpdateTime = DateFormat.getTimeInstance().format(Date())
-        updateUI()
+        _currentLocation = location
+        _lastUpdateTime = DateFormat.getTimeInstance().format(Date())
+        //updateUI()
     }
 
-    private fun updateUI() {
-        if (null != mCurrentLocation) {
-            val lat = mCurrentLocation?.latitude.toString()
-            val lng = mCurrentLocation?.longitude.toString()
-        }
-    }
+//    private fun updateUI() {
+//        if (null != _currentLocation) {
+//            val lat = _currentLocation?.latitude.toString()
+//            val lng = _currentLocation?.longitude.toString()
+//        }
+//    }
 
     override fun onConnected(p0: Bundle?) {
         checkPermission()
-        if (mCurrentLocation != null) {
-            addMarker(mCurrentLocation!!.latitude, mCurrentLocation!!.longitude, "You are here")
+        if (_currentLocation != null) {
+            addMarker(_currentLocation!!.latitude, _currentLocation!!.longitude,
+                    getString(R.string.you_are_here))
         }
     }
 
@@ -89,12 +94,10 @@ class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
                 val builder = AlertDialog.Builder(this)
 
-                builder.setMessage("Mega Sena needs to access your location")
-                        .setTitle("Permission request")
+                builder.setMessage(getString(R.string.access_location_permission))
+                        .setTitle(R.string.access_location_permission_title)
 
-                builder.setPositiveButton("OK") { dialog, id ->
-                    //Log.i(FragmentActivity.TAG, "Clicked")
-                    requestPermission()
+                builder.setPositiveButton("OK") { _, _ -> requestPermission()
                 }
 
                 val dialog = builder.create()
@@ -110,8 +113,9 @@ class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
                                             permissions: Array<String>,
                                             grantResults: IntArray) {
         when (requestCode) {
-            REQUEST_GPS -> {
-                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+            _requestGPS -> {
+                if (grantResults.isEmpty()
+                        || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     finish()
                 }
                 return
@@ -123,39 +127,44 @@ class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
         ActivityCompat.requestPermissions(this,
                 arrayOf(
                         Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_GPS)
+                _requestGPS)
     }
 
     @Synchronized
     private fun callConnection() {
-        mGoogleApiClient = GoogleApiClient.Builder(this)
+        _googleApiClient = GoogleApiClient.Builder(this)
                 .addOnConnectionFailedListener(this)
                 .addConnectionCallbacks(this)
                 .addApi(LocationServices.API).build()
-        mGoogleApiClient.connect()
+        _googleApiClient.connect()
         mvpLocation ()
     }
 
     private fun createLocationRequest() {
-        mLocationRequest = LocationRequest()
-        mLocationRequest.interval = INTERVAL
-        mLocationRequest.fastestInterval = FASTEST_INTERVAL
-        mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        _locationRequest = LocationRequest()
+        _locationRequest.interval = _interval
+        _locationRequest.fastestInterval = _fastedInterval
+        _locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
     }
 
     private fun addMarker(latitude: Double, longitude: Double, title: String) {
         val sydney = LatLng(latitude, longitude)
-        mMap.addMarker(MarkerOptions().position(sydney).title(title)
+        _maps.addMarker(MarkerOptions().position(sydney).title(title)
                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16f))
+        _maps.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        _maps.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16f))
 
     }
 
-    fun mvpLocation () {
+
+    /**
+     * Just mock a fixed location of the lottery 2038 (but it really happens there :) )
+     *
+     */
+    private fun mvpLocation () {
         val lastLotteryLocation = LatLng(-26.759707, -53.1729115)
-        mMap.addMarker(MarkerOptions().position(lastLotteryLocation).title("Espaço Criança Sorriso"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLotteryLocation, 15.toFloat()))
+        _maps.addMarker(MarkerOptions().position(lastLotteryLocation).title("Espaço Criança Sorriso"))
+        _maps.moveCamera(CameraUpdateFactory.newLatLngZoom(lastLotteryLocation, 15.toFloat()))
     }
 
     /**
@@ -166,7 +175,7 @@ class LotteryLocationMapsActivity : AppCompatActivity(), OnMapReadyCallback,
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+        _maps = googleMap
         callConnection()
     }
 

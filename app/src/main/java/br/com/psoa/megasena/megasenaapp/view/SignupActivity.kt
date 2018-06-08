@@ -18,7 +18,10 @@ import br.com.psoa.megasena.megasenaapp.repository.SaveListener
 
 import kotlinx.android.synthetic.main.activity_signup.*
 
-
+/**
+ * Allow the register of new users
+ *
+ */
 class SignupActivity : AppCompatActivity() {
 
 

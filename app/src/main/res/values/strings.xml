@@ -42,4 +42,21 @@
     <string name="nav_map">Lottery Location</string>
     <string name="share_result">Share Result</string>
     <string name="call_result">Win! Call someone</string>
+    <string name="no_items_found">No items found</string>
+    <string name="you_are_here">You are here</string>
+    <string name="access_location_permission">Mega Sena needs to access your location</string>
+    <string name="access_location_permission_title">Permission request</string>
+    <string name="share_you_win">You win! Share</string>
+    <string name="caixa_lottery_result_uri">http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/</string>
+    <string name="mininum_lottery_numbers">You should select at least 6 numbers</string>
+    <string name="not_yet_singup">Not yet registered? Sign Up</string>
+    <string name="already_member_signin">Already a member? Login</string>
+    <string name="author">Tiago Novaes Dias</string>
+    <string name="version">v1.0</string>
+    <string name="loading_data">Loading data...</string>
+    <string name="last_lottery_number">Last lottery</string>
+    <string name="date_last_lottery">Date</string>
+    <string name="lottery_selected_numbers">Numbers</string>
+    <string name="numbers">Numbers</string>
+    <string name="lottery">lottery</string>
 </resources>

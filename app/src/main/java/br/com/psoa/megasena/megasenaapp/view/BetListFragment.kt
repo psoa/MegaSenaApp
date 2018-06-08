@@ -6,7 +6,6 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -21,18 +20,19 @@ import br.com.psoa.megasena.megasenaapp.repository.UserBetLoadListener
 import kotlinx.android.synthetic.main.bet_item_list.*
 
 
+/**
+ *
+ * List all bets of a given user
+ *
+ */
 class BetListFragment : Fragment() {
 
-    private var columnCount = 1
-
-    private var listener: OnBetListFragmentInteractionListener? = null
+    private var _listener: OnBetListFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
-            columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
+
         LoadUserBetTask().execute()
     }
 
@@ -44,12 +44,12 @@ class BetListFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = BetInteractionListener(context)
+        _listener = BetInteractionListener(context)
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
+        _listener = null
     }
 
 
@@ -59,11 +59,8 @@ class BetListFragment : Fragment() {
 
         if (rvBet is RecyclerView) {
             with(rvBet) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = BetListRecyclerViewAdapter(data, listener)
+                layoutManager = LinearLayoutManager(context)
+                adapter = BetListRecyclerViewAdapter(data, _listener)
             }
         }
 
@@ -110,12 +107,11 @@ class BetListFragment : Fragment() {
             if (bets != null) {
                 setUpRecyclerView(bets)
             } else {
-                toast("No items found")
+                toast(getString(R.string.no_items_found))
             }
         }
 
         private val repo = AppRepository(this@BetListFragment.activity!!.application)
-
 
         override fun doInBackground(vararg params: Void): Void? {
             val sp = this@BetListFragment.activity!!.getSharedPreferences(
@@ -126,26 +122,5 @@ class BetListFragment : Fragment() {
             repo.load(userId, this)
             return null
         }
-
-        override fun onCancelled() {
-//            mAuthTask = null
-//            showProgress(false)
-        }
-    }
-
-
-    companion object {
-
-        // TODO: Customize parameter argument names
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        // TODO: Customize parameter initialization
-        @JvmStatic
-        fun newInstance(columnCount: Int) =
-                BetListFragment().apply {
-                    arguments = Bundle().apply {
-                        putInt(ARG_COLUMN_COUNT, columnCount)
-                    }
-                }
     }
 }

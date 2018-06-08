@@ -33,12 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Tiago Novaes Dias" />
+            android:text="@string/author" />
 
         <TextView
             android:id="@+id/txVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="v1.0" />
+            android:text="@string/version" />
     </LinearLayout>
 </FrameLayout>

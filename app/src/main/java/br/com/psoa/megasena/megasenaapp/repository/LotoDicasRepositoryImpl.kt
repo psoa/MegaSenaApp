@@ -12,11 +12,21 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LotoDicasRepositoryImpl : LotoDicasRepository{
+
+/**
+ *
+ * Retrieve information about lottery results
+ *
+ * Final target will be https://www.lotodicas.com.br but keep psoa.com.br for develop
+ * propose (personal domain)
+ *
+ */
+class LotoDicasRepositoryImpl : LotoDicasRepository {
 
     private val lotoDicasAPI: LotoDicasAPI
 
     init {
+
         val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl("http://www.psoa.com.br")

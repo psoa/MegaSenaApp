@@ -9,8 +9,6 @@ import br.com.psoa.megasena.megasenaapp.data.Bet
 import br.com.psoa.megasena.megasenaapp.data.BetDao
 import java.sql.SQLDataException
 
-
-//@Singleton
 class AppRepository {
 
     private var userDao: UserDao?
@@ -55,10 +53,10 @@ class AppRepository {
                     asyncTaskDao?.insert(params[0])
                     insertListener.onSave(SaveListener.SaveStatusCode.OK)
                 } catch (e: SQLDataException) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 } catch (e: Exception) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 }
                 return null
@@ -73,10 +71,10 @@ class AppRepository {
                     asyncTaskDao?.insert(params[0])
                     insertListener.onSave(SaveListener.SaveStatusCode.OK)
                 } catch (e: SQLDataException) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 } catch (e: Exception) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     insertListener.onSave(SaveListener.SaveStatusCode.FAIL)
                 }
                 return null
@@ -92,10 +90,10 @@ class AppRepository {
                     asyncTaskDao?.delete(params[0])
                     listener.onDelete(DeleteListener.DeleteStatusCode.OK)
                 } catch (e: SQLDataException) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     listener.onDelete(DeleteListener.DeleteStatusCode.FAIL)
                 } catch (e: Exception) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                     listener.onDelete(DeleteListener.DeleteStatusCode.FAIL)
                 }
                 return null
@@ -111,9 +109,9 @@ class AppRepository {
                 try {
                     return asyncTaskDao?.load(params[0])
                 } catch (e: SQLDataException) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                 } catch (e: Exception) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                 }
                 return null
             }
@@ -132,9 +130,9 @@ class AppRepository {
                 try {
                     return asyncTaskDao?.loadByUser(params[0])
                 } catch (e: SQLDataException) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                 } catch (e: Exception) {
-                    Log.e("PSOA", e.localizedMessage, e)
+                    Log.e("ROOM", e.localizedMessage, e)
                 }
                 return null
             }

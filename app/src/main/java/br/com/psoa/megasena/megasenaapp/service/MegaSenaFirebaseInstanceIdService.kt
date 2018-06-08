@@ -8,7 +8,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 
 class MegaSenaFirebaseInstanceIdService: FirebaseInstanceIdService() {
 
-    private val TAG = "MyFirebaseIIDService"
+    private val TAG = "FirebaseIIDService"
 
     /**
      * Called if InstanceID token is updated. This may occur if the security of
