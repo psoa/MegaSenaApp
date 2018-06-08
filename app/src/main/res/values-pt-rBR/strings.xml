@@ -32,5 +32,14 @@
     <string name="title_activity_lottery_location">Localization</string>
     <string name="close_button">Close</string>
     <string name="nav_map">Lottery Location</string>
+    <string name="share_result">Share Result</string>
+    <string name="title_activity_play_lottery">Jogar</string>
+    <string name="my_play_number">meus números</string>
+    <string name="nav_info">Inicio</string>
+    <string name="nav_my_bets">Minhas Apostas</string>
+    <string name="nav_tools">Ferramentas</string>
+    <string name="title_activity_lottery_location_maps">Mapa</string>
+    <string name="title_activity_lotery_location">Local do Sorteio</string>
+    <string name="call_result">Ganhou! Avise alguém</string>
 
 </resources>

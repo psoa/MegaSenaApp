@@ -1,6 +1,7 @@
 package br.com.psoa.megasena.megasenaapp.view
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -69,15 +70,15 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        when (item.itemId) {
+//            R.id.action_settings -> return true
+//            else -> return super.onOptionsItemSelected(item)
+//        }
+//    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -90,6 +91,14 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 showMap()
                 return true
             }
+            R.id.nav_share -> {
+                shareNumbers()
+                return true
+            }
+            R.id.nav_send -> {
+                makePhoneCall("") //TODO: Just for FIAP - REMOVE
+                return true
+            }
         }
         // Handle navigation view item clicks here.
         val fragment = when (item.itemId) {
@@ -99,12 +108,6 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_my_bets -> {
                 BetListFragment()
             }
-           R.id.nav_share -> {
-                HomeFragment()
-            }
-            R.id.nav_send -> {
-                HomeFragment()
-            }
             R.id.nav_about -> {
                 AboutFragment()
             }
@@ -113,12 +116,32 @@ class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
+
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.content_menu_layout, fragment)
                 .commit()
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+
+    private fun shareNumbers() {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/")
+        startActivity(Intent.createChooser(shareIntent, "Mostre que ganhou!"))
+    }
+
+    private fun makePhoneCall(number: String) : Boolean {
+        try {
+            val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+            startActivity(intent)
+            return true
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return false
+        }
     }
 
     private fun showMap() {

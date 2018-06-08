@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "923497680929",
+    "firebase_url": "https://sturdy-essence-206516.firebaseio.com",
+    "project_id": "sturdy-essence-206516",
+    "storage_bucket": "sturdy-essence-206516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923497680929:android:183bd656f44d372b",
+        "android_client_info": {
+          "package_name": "br.com.psoa.megasena.megasenaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923497680929-26bqo1nm0s5nihdmp2r9hsb0co9gbbeg.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "923497680929-26bqo1nm0s5nihdmp2r9hsb0co9gbbeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBQQOAC5-ueRjogqZLouvlvNTL63TTB_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -59,6 +61,9 @@ dependencies {
 
     // Anko Layouts: a fast and type-safe way to write dynamic Android layouts;
     implementation "org.jetbrains.anko:anko-support-v4:$anko_version"
+
+    //Add firebase suport
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
 
     //test framework
     testImplementation 'junit:junit:4.12'
